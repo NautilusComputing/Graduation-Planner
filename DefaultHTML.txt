@@ -1,0 +1,38 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="GraduationPlanner.Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Graduation Planner</title>
+    <style>
+        h1{background-color: red; color: white;}
+    </style>
+</head>
+<body>
+     <h1>
+        ISU Graduation Planner
+    </h1>
+    <form id="form1" runat="server">
+        <div>
+
+            Username:&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="username" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            Password:&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="password" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="login" runat="server" OnClick="Login_Click" Text="Login" />
+            <br />
+            <br />
+            <asp:Button ID="newAccount" runat="server" OnClick="NewAccount_Click" Text="Create New Account" />
+            <br />
+            <br />
+            <asp:Label ID="message" runat="server"></asp:Label>
+
+        </div>
+    </form>
+</body>
+</html>

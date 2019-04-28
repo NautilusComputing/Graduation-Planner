@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using MySql.Data.MySqlClient;
+
+namespace GraduationPlanner
+{
+    public partial class Default : System.Web.UI.Page
+    {
+        String connectionString = @"Server=localhost;Database=graduation_planner;Uid=root;Pwd=1234;";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Login_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
+            {
+              
+                sqlCon.Open();
+                string userUsername = username.Text;
+                string userPassword = password.Text;
+
+                MySqlCommand cmd = sqlCon.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from users where username='" + userUsername + "' and password='" + userPassword + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                int i = Convert.ToInt32(dt.Rows.Count.ToString());
+
+                if(i == 0)
+                {
+                    message.Text = "Invalid Username or Password";
+                }
+                else
+                {
+                    Response.Redirect("GraduationTrack.aspx");
+                }
+
+            }
+           
+        }
+
+        protected void NewAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("NewAccount.aspx");
+        }
+
+    }
+}
