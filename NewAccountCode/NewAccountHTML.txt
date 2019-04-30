@@ -1,0 +1,54 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewAccount.aspx.cs" Inherits="GraduationPlanner.NewAccount" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>New Account</title>
+    <style>
+        h1{background-color: red; color: white;}
+    </style>
+</head>
+<body>
+    <h1>
+        New Account
+    </h1>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Label ID="Label3" runat="server" Text="Username:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="username" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Password:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="Label5" runat="server" Text="Confirm Password:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="confirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+            <br />
+            <br />
+            Major:<asp:DropDownList ID="majorDropDown" runat="server" Height="35px" style="margin-left: 109px" Width="155px">
+                <asp:ListItem Value="1">Information Technology</asp:ListItem>
+                <asp:ListItem Value="2">Cybersecurity</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="Label6" runat="server" Text="Current GPA (If you are a new student leave this blank):"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="gpaBox" runat="server">0.00</asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            <br />
+            <asp:Button ID="createAccount" runat="server" OnClick="CreateAccount_Click" Text="Create Account" />
+            <br />
+        </div>
+        <div style="margin-left: 160px">
+            <asp:Label ID="message" runat="server" ForeColor="Red"></asp:Label>
+        </div>
+        <br />
+        <br />
+    </form>
+</body>
+</html>
